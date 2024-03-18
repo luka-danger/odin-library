@@ -19,11 +19,20 @@ function Book(title, author, pages, hasRead) {
     }
 }
 
-/*
+function addBookToLibrary(myBook) {
+    myLibrary.push(myBook)
+}
+
 const theHobbit = new Book("The Hobbit", "JRR Tolkien", 295, true);
 
 const theFellowship = new Book("The Fellowship of The Ring", "JRR Tolkien", 327, false);
 
+addBookToLibrary(theHobbit)
+addBookToLibrary(theFellowship)
+
+console.log(myLibrary)
+
+/*
 console.log(theHobbit.info())
 console.log(theFellowship.info())
 
