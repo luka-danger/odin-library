@@ -33,7 +33,7 @@ class Library {
         let hasReadHeader = headerRow.insertCell();
         hasReadHeader.textContent = 'Has Read?';
         let update = headerRow.insertCell(); 
-        update.textContent = 'Update';
+        update.textContent = 'Update Read Status';
         let remove = headerRow.insertCell(); 
         remove.textContent = 'Remove';
         headerRow.style.fontWeight = 'bold';
@@ -50,16 +50,27 @@ class Library {
             pagesCell.textContent = book.pages;
             let readCell = row.insertCell();
             readCell.textContent = book.hasRead;
+            let update = row.insertCell();
+            let updateButton = document.createElement('button');
+            updateButton.textContent = 'Update';
+            update.appendChild(updateButton);
+            let remove = row.insertCell();
+            let removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            remove.appendChild(removeButton);
         });
-    }
 
+    }
+    removeBook(bookId) {
+        this.library = this.library.filter(book => book.id !== bookId); // Remove book by id
+    }
 }
 
 // Store all books inside myLibrary 
 const myLibrary = new Library();
 
-const theHobbit = new Book("The Hobbit", "JRR Tolkien", 295, 'yes');
-const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 327, 'no');
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, 'Yes');
+const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 1178, 'No');
 
 myLibrary.addBookToLibrary(theHobbit);
 myLibrary.addBookToLibrary(theRings);
