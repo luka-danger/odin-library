@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(232, 231, 231);
+    background-color: rgb(220, 219, 219);
 }
 
 ::backdrop {
@@ -9,7 +9,7 @@ body {
 .header {
     height: 20vh;
     margin: 0;
-    background-color: gray;
+    background-color: rgb(144, 143, 143);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,12 +29,16 @@ table {
     letter-spacing: 1px;
   }
 
-  td {
+td {
     border: 1px solid rgb(190,190,190);
     padding: 10px 20px;
   }
 
-  th {
+th {
     font-weight: bold;
   }
+
+button {
+    border-radius: 5px;
+}
  
