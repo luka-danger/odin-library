@@ -54,15 +54,24 @@ class Library {
             let updateButton = document.createElement('button');
             updateButton.textContent = 'Update';
             update.appendChild(updateButton);
+            updateButton.addEventListener('click', () => {
+                // FIX ME: Remove
+                console.log('cool')
+
+                // FIX ME: Write code to update has read status
+            })
             let remove = row.insertCell();
             let removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
             remove.appendChild(removeButton);
+            removeButton.addEventListener('click', () => {
+                // FIX ME: Remove
+                console.log('clicked')
+
+                // FIX ME: Write code to delete row
+            })
         });
 
-    }
-    removeBook(bookId) {
-        this.library = this.library.filter(book => book.id !== bookId); // Remove book by id
     }
 }
 
