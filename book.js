@@ -30,7 +30,13 @@ const theFellowship = new Book("The Fellowship of The Ring", "JRR Tolkien", 327,
 addBookToLibrary(theHobbit)
 addBookToLibrary(theFellowship)
 
-console.log(myLibrary)
+function displayBook() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        console.log(myLibrary[i])
+    }
+}
+
+displayBook();
 
 /*
 console.log(theHobbit.info())
