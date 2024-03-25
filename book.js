@@ -9,6 +9,7 @@ class Book {
 }
 
 class Library {
+    // Library Constructor to store books
     constructor() {
         this.library = []
     }
@@ -50,6 +51,8 @@ class Library {
             pagesCell.textContent = book.pages;
             let readCell = row.insertCell();
             readCell.textContent = book.hasRead;
+            
+            // Update hasRead status
             let update = row.insertCell();
             let updateButton = document.createElement('button');
             updateButton.textContent = 'Update';
@@ -60,6 +63,8 @@ class Library {
 
                 // FIX ME: Write code to update has read status
             })
+
+            // Remove book from table 
             let remove = row.insertCell();
             let removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
@@ -75,9 +80,11 @@ class Library {
     }
 }
 
-// Store all books inside myLibrary 
+
+// Create new Library Object Array
 const myLibrary = new Library();
 
+// Add Default Data to Display in Table
 const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, 'Yes');
 const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 1178, 'No');
 
@@ -85,9 +92,12 @@ myLibrary.addBookToLibrary(theHobbit);
 myLibrary.addBookToLibrary(theRings);
 myLibrary.displayBooks();
 
+// Dialog Modal to enter new book
 const form = document.getElementById('new-book-form');
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+            // Prevent default form submission
+            // Enters info to table
+            event.preventDefault(); 
 
             // Get form values
             const title = document.getElementById('title').value;
