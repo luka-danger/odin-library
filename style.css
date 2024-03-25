@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(232, 231, 231);
+}
+
+::backdrop {
+    opacity: 0.75;
+  }
+
+.header {
+    height: 20vh;
+    margin: 0;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+#books-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    letter-spacing: 1px;
+  }
+
+  td {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+  }
+
+  th {
+    font-weight: bold;
+  }
+ 

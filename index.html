@@ -8,21 +8,27 @@
     <title>Library</title>
 </head>
 <body>
-    <ul id="test"></ul>
+    <div class="header">My Library</div>
+    <div id="books-container">
+        <table id="books-table"></table>
+    </div>
     <dialog>
-        <p>Add New Book To Library</p>
-        <form>
-            <label for="title">Title</label>
-            <input type="text" name="title"/>
-            <label for="author">Author</label>
-            <input type="text" name="author"/>
-            <label for="pages">Pages</label>
-            <input type="number" name="pages"/>
-            <label for="hasRead">Read Yet?</label>
-            <input type="radio" name="hasRead" value="yes">Yes</input>
-            <input type="radio" name="hasRead" value="no"> No</input>
-            <button onclick="addBookToLibrary()">Add Book</button>
-        </form>
+        <div id="add-book-form">
+            <h2>Add New Book</h2>
+            <form id="new-book-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br><br>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required><br><br>
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" required><br><br>
+                <label for="hasRead">Has Read?</label>
+                  <select name="hasRead" id="hasRead">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                <button type="submit">Add Book</button>
+            </form>   
     </dialog>
     <button>Add New Book</button>
 </body>
