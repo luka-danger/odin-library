@@ -30,9 +30,18 @@ const theFellowship = new Book("The Fellowship of The Ring", "JRR Tolkien", 327,
 addBookToLibrary(theHobbit)
 addBookToLibrary(theFellowship)
 
+const theNotebook = new Book("The Notebook", "Nicholas Sparks", 405, false);
+
+addBookToLibrary(theNotebook)
+
 function displayBook() {
+    let books = document.getElementById('test')
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
+        console.log(myLibrary[i].title)
+        let newBook = document.createElement('li')
+        newBook.innerText = myLibrary[i].title; 
+        books.appendChild(newBook)
+
     }
 }
 
