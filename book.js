@@ -8,11 +8,42 @@ function Book(title, author, pages, hasRead) {
         this.hasRead = hasRead;
 }
 
+Book.prototype.toggleRead = function() {
+    this.hasRead = !this.hasRead;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
 function render() {
-    let libraryBook = document.querySelector('library');
+    let libraryBook = document.querySelector('#library');
+    libraryBook.innerHTML = ""; 
+
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
+        let book = myLibrary[i];
+        let bookElement = document.createElement('div');
+        bookElement.setAttribute("class", "book-card")
+        bookElement.innerHTML = `
+        <div class="book-card-header">
+            <h3 class="title">${book.title}</h3>
+            <h5 class="author"> by ${book.author}</h5>
+        </div>
+        <div class="book-card-body">
+            <p>${book.pages} pages</p>
+            
+            <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
+            <button class="toggle-read-btn" onclick="toggleRead(${i})">Book Read</button>
+        </div>
+        `;
+        libraryBook.appendChild(bookElement);
     }
+}
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    render();
 }
 
 function addBookToLibrary() {
@@ -22,7 +53,7 @@ function addBookToLibrary() {
     let hasRead = document.querySelector('#hasRead').value; 
     let newBook = new Book(title, author, pages, hasRead);
     myLibrary.push(newBook);
-    render(); 
+    render();
 }
 
     
