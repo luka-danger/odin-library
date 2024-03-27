@@ -32,7 +32,7 @@ function render() {
         </div>
         <div class="book-card-body">
             <p>${book.pages} pages</p>
-            
+            <p class="read-status">${book.hasRead ? "Read" : "Not Yet Read"}</p>
             <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
             <button class="toggle-read-btn" onclick="toggleRead(${i})">Book Read</button>
         </div>
