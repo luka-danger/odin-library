@@ -3,8 +3,15 @@ body {
 }
 
 ::backdrop {
-    opacity: 0.75;
-  }
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green
+  );
+  opacity: 0.75;
+}
 
 .header {
     height: 20vh;
@@ -16,29 +23,23 @@ body {
     font-size: 50px;
 }
 
-#books-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
+@media (max-width: 248px) {
+  .header p {
+      display: none;
+  }
 }
 
-table {
-    border-collapse: collapse;
-    border: 2px solid black;
-    letter-spacing: 1px;
-  }
+.add-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-td {
-    border: 1px solid rgb(190,190,190);
-    padding: 10px 20px;
-  }
-
-th {
-    font-weight: bold;
-  }
-
-button {
-    border-radius: 5px;
+#add-book-btn {
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: rgb(144, 143, 143);
+  color: white;
 }
  
