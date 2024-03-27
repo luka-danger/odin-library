@@ -58,11 +58,11 @@ body {
 }
 
 
-
 #add-book-form select {
   text-align: center;
   width: 100px;
   margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 #add-book-form input {

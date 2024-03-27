@@ -50,7 +50,7 @@ function addBookToLibrary() {
     let title = document.querySelector('#title').value; 
     let author = document.querySelector('#author').value; 
     let pages = document.querySelector('#pages').value; 
-    let hasRead = document.querySelector('#hasRead').value; 
+    let hasRead = document.querySelector('#hasRead'); 
     let newBook = new Book(title, author, pages, hasRead);
     myLibrary.push(newBook);
     render();
@@ -58,11 +58,13 @@ function addBookToLibrary() {
 
     
 // Add Default Data to Display in Table
-const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, "Read");
-const harryPotter = new Book("Harry Potter and the Prisoner of Azkaban", "JK Rowling", 435, "Read");
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, true);
+const harryPotter = new Book("Harry Potter and the Prisoner of Azkaban", "JK Rowling", 435, true);
+const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 1137, false);
 
 myLibrary.push(theHobbit)
 myLibrary.push(harryPotter)
+myLibrary.push(theRings)
 
 // "Show the dialog" button opens the dialog modally
 const dialog = document.querySelector('dialog');
@@ -75,6 +77,7 @@ addNewBook.addEventListener("click", () => {
 document.querySelector('#add-book-form').addEventListener('submit', () => {
     event.preventDefault();
     addBookToLibrary();
+    document.getElementById('add-book-form').reset(); 
     dialog.close();
 })
 
