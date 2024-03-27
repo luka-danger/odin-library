@@ -18,7 +18,7 @@ class Library {
         this.library.push(newBook)
     }
 
-    displayBooks() {
+    displayBooks(index) {
         let table = document.getElementById('books-table');
         // Prevent all books from being re-added each time
         table.innerText = ''; 
@@ -33,8 +33,6 @@ class Library {
         pagesHeader.textContent = 'Pages';
         let hasReadHeader = headerRow.insertCell();
         hasReadHeader.textContent = 'Has Read?';
-        let update = headerRow.insertCell(); 
-        update.textContent = 'Update Read Status';
         let remove = headerRow.insertCell(); 
         remove.textContent = 'Remove';
         headerRow.style.fontWeight = 'bold';
@@ -53,16 +51,9 @@ class Library {
             readCell.textContent = book.hasRead;
             
             // Update hasRead status
-            let update = row.insertCell();
-            let updateButton = document.createElement('button');
-            updateButton.textContent = 'Update';
-            update.appendChild(updateButton);
-            updateButton.addEventListener('click', () => {
-                // FIX ME: Remove
-                console.log('cool')
-
-                // FIX ME: Write code to update has read status
-            })
+            let checkBox = document.createElement('input')
+            checkBox.type = "checkbox";
+            readCell.appendChild(checkBox)
 
             // Remove book from table 
             let remove = row.insertCell();
@@ -80,13 +71,20 @@ class Library {
     }
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+}
 
 // Create new Library Object Array
 const myLibrary = new Library();
 
 // Add Default Data to Display in Table
-const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, 'Yes');
-const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 1178, 'No');
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320);
+const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 1178);
 
 myLibrary.addBookToLibrary(theHobbit);
 myLibrary.addBookToLibrary(theRings);
@@ -103,7 +101,7 @@ const form = document.getElementById('new-book-form');
             const title = document.getElementById('title').value;
             const author = document.getElementById('author').value;
             const pages = parseInt(document.getElementById('pages').value);
-            const hasRead = document.getElementById('hasRead').value;
+            const hasRead = document.getElementById('hasRead');
 
             // Create new book and add to library
             const newBook = new Book(title, author, pages, hasRead);
@@ -120,12 +118,12 @@ const form = document.getElementById('new-book-form');
         const showButton = document.querySelector("dialog + button");
         const closeButton = document.querySelector("dialog button");
         
-        // "Show the dialog" button opens the dialog modally
+        // Show button opens the dialog modally
         showButton.addEventListener("click", () => {
           dialog.showModal();
         });
         
-        // "Close" button closes the dialog
+        // Close button closes the dialog
         closeButton.addEventListener("click", () => {
           dialog.close();
         });
