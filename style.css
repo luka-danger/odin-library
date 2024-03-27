@@ -28,13 +28,36 @@ body {
 }
 
 #add-book-btn,
-#add-book-form button {
+#add-book-form button,
+.toggle-read-btn, 
+.remove-btn {
   border-radius: 10px;
   background-color: rgb(144, 143, 143);
   color: white;
+}
+
+#add-book-btn,
+#add-book-form button {
   padding: 10px 50px;
   font-size: 20px;
 }
+
+.toggle-read-btn, 
+.remove-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.read {
+  background-color: green;
+}
+
+.not-read {
+  background-color: rgb(238, 33, 33);
+}
+
+
 
 #add-book-form select {
   text-align: center;
@@ -75,5 +98,14 @@ body {
   border: 1px solid black;
   text-align: center;
   width: 250px;
-  padding: 20px
+  padding: 20px;
 }
+
+.book-card-header {
+  height: 15vh;
+}
+
+
+
+
+

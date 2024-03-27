@@ -31,10 +31,10 @@ function render() {
             <h5 class="author"> by ${book.author}</h5>
         </div>
         <div class="book-card-body">
-            <p>${book.pages} pages</p>
-            <p class="read-status">${book.hasRead ? "Read" : "Not Yet Read"}</p>
-            <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
+            <p class="pages">${book.pages} pages</p>
+            <p class="read-status ${book.hasRead ? 'read' : 'not-read'}"> ${book.hasRead ? "Read" : "Not Yet Read"}</p>
             <button class="toggle-read-btn" onclick="toggleRead(${i})">Book Read</button>
+            <button class="remove-btn" onclick="removeBook(${i})">Remove</button>
         </div>
         `;
         libraryBook.appendChild(bookElement);
@@ -58,11 +58,11 @@ function addBookToLibrary() {
 
     
 // Add Default Data to Display in Table
-const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, "Yes");
-const theRings = new Book("The Lord of the Rings", "JRR Tolkien", 1178, "No");
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", 320, "Read");
+const harryPotter = new Book("Harry Potter and the Prisoner of Azkaban", "JK Rowling", 435, "Read");
 
 myLibrary.push(theHobbit)
-myLibrary.push(theRings)
+myLibrary.push(harryPotter)
 
 // "Show the dialog" button opens the dialog modally
 const dialog = document.querySelector('dialog');
