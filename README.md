@@ -1,4 +1,4 @@
-# Admin Dashboard
+# Library App
 ## Project 8: Library App Built Using JavaScript, CSS, and HTML
 
 ## Description: 
