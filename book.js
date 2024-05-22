@@ -1,20 +1,17 @@
 // Create new Library Object Array
 let myLibrary = [];
 
-function Book(title, author, pages, hasRead) {
+class Book {
+    constructor(title, author, pages, hasRead) {
         this.title = title;
         this.author = author;
-        this.pages = pages;
+        this.pages = pages; 
         this.hasRead = hasRead;
-}
+    }
 
-Book.prototype.toggleRead = function() {
-    this.hasRead = !this.hasRead;
-}
-
-function toggleRead(index) {
-    myLibrary[index].toggleRead();
-    render();
+    toggleRead(index) {
+        this.hasRead = !this.hasRead;
+    }
 }
 
 function render() {
@@ -39,6 +36,11 @@ function render() {
         `;
         libraryBook.appendChild(bookElement);
     }
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
 }
 
 function removeBook(index) {
